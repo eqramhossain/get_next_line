@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:20:20 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/18 14:15:57 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/12/18 21:52:24 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,9 @@ int	main(void)
 		printf("Open Success!!\nfd = %d\n", fd);
 	while (1)
 	{
-		printf("Line count = [%d] // in main\n", count);
 		next_line = get_next_line(fd);
 		if (next_line == NULL)
 			break ;
-		printf("char next_line = %s // in main\n", next_line);
 		free(next_line);
 		count++;
 	}

@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:13:42 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/18 17:40:07 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:01:29 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@
 # endif
 
 char	*get_next_line(int fd);
-int		ft_strlen(char *str);
+size_t	ft_strlen(const char *str);
 char	*ft_strchr(const char *str, int i);
 char	*ft_strdup(const char *str);
 char	*ft_substr(char const *str, unsigned int start, size_t len);

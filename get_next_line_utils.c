@@ -6,17 +6,17 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:44:03 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/18 17:38:34 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/12/18 18:01:13 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-size_t	ft_strlen(char *str)
+size_t	ft_strlen(const char *str)
 {
 	static size_t	i;
 
-	size_t = 0;
+	i = 0;
 	while (str[i] != '\0')
 	{
 		i++;
@@ -32,11 +32,11 @@ char	*ft_strchr(const char *str, int i)
 	while (str[count] != '\0')
 	{
 		if (str[count] == (char)i)
-			return (str[count]);
+			return ((char *)&str[count]);
 		count++;
 	}
 	if (str[count] == (char)i)
-		return (str[count]);
+		return ((char *)&str[count]);
 	return (NULL);
 }
 
@@ -46,7 +46,7 @@ char	*ft_strdup(const char *str)
 	char			*buffer;
 
 	count = 0;
-	buffer = (char *)malloc((ft_strlen(s) + 1) * sizeof(char));
+	buffer = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
 	if (buffer == NULL)
 		return (NULL);
 	while (str[count] != '\0')
@@ -69,7 +69,7 @@ char	*ft_substr(char const *str, unsigned int start, size_t len)
 	if (start >= ft_strlen(str))
 		return (ft_strdup(""));
 	if (len > ft_strlen(str) - start)
-		len = ft_strlen - start;
+		len = ft_strlen(str) - start;
 	buffer = (char *)malloc(len + 1 * sizeof(char));
 	while (str[count] && count < len)
 	{
