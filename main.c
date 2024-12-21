@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:20:20 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/18 21:52:24 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/12/21 11:05:40 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,10 +18,9 @@ int	main(void)
 {
 	int		fd;
 	char	*next_line;
-	int		cl;
-	int		count;
 
-	count = 0;
+	fd = 0;
+	next_line = "";
 	fd = open("file.txt", O_RDONLY);
 	if (fd == -1)
 	{
@@ -29,22 +28,20 @@ int	main(void)
 		return (0);
 	}
 	else
-		printf("Open Success!!\nfd = %d\n", fd);
-	while (1)
+		printf("Open Successful!!\nfd = %d\n", fd);
+	for (int i = 0; i < 3; i++)
 	{
 		next_line = get_next_line(fd);
-		if (next_line == NULL)
-			break ;
+		printf("Line Readed = %s\n", next_line);
 		free(next_line);
-		count++;
 	}
-	cl = close(fd);
-	if (cl == -1)
+	fd = close(fd);
+	if (fd == -1)
 	{
-		printf("Error number: %d\nError Cause: %s\n", cl, strerror(errno));
+		printf("Error number: %d\nError Cause: %s\n", fd, strerror(errno));
 		return (0);
 	}
 	else
-		printf("Close Success!!\ncl = %d\n", cl);
+		printf("Close Successful!!\nfd = %d\n", fd);
 	return (0);
 }
