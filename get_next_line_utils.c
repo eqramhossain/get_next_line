@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:44:03 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/21 15:51:00 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:21:51 by ikramhossain     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -63,7 +63,7 @@ char	*ft_strdup(const char *str)
 	char			*buffer;
 
 	count = 0;
-	buffer = (char *)malloc((ft_strlen(str) + 1) * sizeof(char));
+	buffer = ft_calloc((ft_strlen(str) + 1), sizeof(char));
 	if (buffer == NULL)
 		return (NULL);
 	while (str[count] != '\0')

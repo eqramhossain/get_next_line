@@ -6,19 +6,21 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:32:36 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/21 19:10:27 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/12/22 11:36:30 by ikramhossain     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*fill_line_buffer(int fd, char *lft_char, char *buffer);
-char	*set_line(char *line_buffer);
+// char	*fill_line_buffer(int fd, char *lft_char, char *buffer);
+// char	*set_line(char *line_buffer);
+
+char	*read_a_line(int fd, char *buffer);
 
 char	*get_next_line(int fd)
 {
 	static char	*lft_char;
-	char		*line;
+	char		*new_line;
 	char		*buffer;
 
 	if (fd < 0 || BUFFER_SIZE <= 0)
@@ -26,24 +28,26 @@ char	*get_next_line(int fd)
 	buffer = ft_calloc(BUFFER_SIZE + 1, sizeof(char));
 	if (!buffer)
 		return (NULL);
-	line = fill_line_buffer(fd, lft_char, buffer);
-	printf("line = %s\n", line);
-	printf("lft_char = %s\n", lft_char);
-	return (line);
+	new_line = read_a_line(fd, buffer);
+	return (new_line);
 }
 
-char	*fill_line_buffer(int fd, char *lft_char, char *buffer)
+char	*read_a_line(int fd, char *buffer)
 {
-	ssize_t	bytes_readen;
+	ssize_t	bytes_read;
 	char	*tmp;
 
-	bytes_readen = read(fd, buffer, BUFFER_SIZE);
-	lft_char = buffer;
+	tmp = "";
+	while (bytes_read > 0)
+	{
+		bytes_read = read(fd, buffer, BUFFER_SIZE);
+		if (bytes_read == 0)
+			break ;
+		buffer[bytes_read] = 0;
+		tmp = ft_strjoin(tmp, buffer);
+		printf("tmp = %s\n", tmp);
+		if (ft_strchr(tmp, '\n'))
+			break ;
+	}
 	return (tmp);
-}
-
-char	*set_line(char *line_buffer)
-{
-	char	*left_c;
-	ssize_t	i;
 }
