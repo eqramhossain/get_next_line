@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:44:03 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/22 18:21:51 by ikramhossain     ###   ########.fr       */
+/*   Updated: 2024/12/23 10:38:15 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,7 +105,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	size_t	n;
 	char	*dest;
 
-	if (s1 == 0 || s2 == 0)
+	if (!s1 || !s2)
 		return (NULL);
 	n = ft_strlen(s1) + ft_strlen(s2) + 1;
 	dest = ft_calloc(n, sizeof(char));

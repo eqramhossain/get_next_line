@@ -1,21 +1,30 @@
-#include "get_next_line.h"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/12/23 08:32:55 by ehossain          #+#    #+#             */
+/*   Updated: 2024/12/23 15:57:49 by ehossain         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-extern int	errno;
+#include "get_next_line.h"
 
 int	main(void)
 {
 	int		fd;
 	char	*next_line;
-	int		i;
 
 	fd = 0;
 	next_line = "";
 	fd = open("file.txt", O_RDONLY);
-	i = 0;
-	next_line = get_next_line(fd);
-	printf("get_next_line = %s\n", next_line);
-	free(next_line);
-	i++;
+	while (next_line != NULL)
+	{
+		next_line = get_next_line(fd);
+		printf("get_next_line = %s\n", next_line);
+	}
 	fd = close(fd);
 	return (0);
 }
