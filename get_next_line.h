@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:13:42 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/22 11:37:12 by ikramhossain     ###   ########.fr       */
+/*   Updated: 2024/12/23 19:41:18 by ikramhossain     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,4 +30,5 @@ char	*ft_strdup(const char *str);
 char	*ft_substr(char const *str, unsigned int start, size_t len);
 void	*ft_calloc(size_t nmemb, size_t size);
 char	*ft_strjoin(char const *s1, char const *s2);
+char	*ft_strcpy(char *dest, char *src);
 #endif

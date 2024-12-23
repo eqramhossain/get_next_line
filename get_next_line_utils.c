@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:44:03 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/23 10:38:15 by ehossain         ###   ########.fr       */
+/*   Updated: 2024/12/23 19:30:39 by ikramhossain     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -125,4 +125,20 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	}
 	dest[i + j] = '\0';
 	return (dest);
+}
+
+char	*ft_strcpy(char *dest, char *src)
+{
+	int		i;
+	char	*ptr_dest;
+
+	i = 0;
+	ptr_dest = dest;
+	while (src[i] != '\0')
+	{
+		dest[i] = src[i];
+		i++;
+	}
+	dest[i] = '\0';
+	return (ptr_dest);
 }
