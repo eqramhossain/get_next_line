@@ -6,7 +6,7 @@
 /*   By: ehossain <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 11:44:03 by ehossain          #+#    #+#             */
-/*   Updated: 2024/12/23 19:30:39 by ikramhossain     ###   ########.fr       */
+/*   Updated: 2024/12/24 10:09:10 by ehossain         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -142,3 +142,36 @@ char	*ft_strcpy(char *dest, char *src)
 	dest[i] = '\0';
 	return (ptr_dest);
 }
+
+char	*ft_str_free_join(char *str1, char *str2)
+{
+	char	*tmp_buffer;
+
+	tmp_buffer = ft_strjoin(str1, str2);
+	free(str1);
+	str1 = NULL;
+	return (tmp_buffer);
+}
+
+// char	*ft_set_next_line(char *buffer)
+// {
+// 	int		i;
+// 	char	*tmp_buffer;
+// 	char	*remaining_buffer;
+//
+// 	i = 0;
+// 	while (buffer[i] && buffer[i] != '\n')
+// 		i++;
+// 	if (buffer[i] == 0 || buffer[1] == 0)
+// 		return (NULL);
+// 	tmp_buffer = ft_calloc(i + 1, sizeof(char));
+// 	if (buffer[i] == '\n')
+// 		tmp_buffer = ft_substr(buffer, 0, i + 1);
+// 	else
+// 		tmp_buffer = ft_substr(buffer, 0, i);
+// 	if (buffer[i])
+// 		remaining_buffer = ft_strdup(buffer + i + 1);
+// 	else
+// 		remaining_buffer = ft_strdup("");
+// 	return (tmp_buffer);
+// }
